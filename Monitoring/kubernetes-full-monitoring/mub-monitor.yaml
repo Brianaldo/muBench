@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      prometheus.io/scrape: 'true'
+      prometheus.io/scrape: "true"
   podMetricsEndpoints:
-  - port: "http-mubpodport"
-
+    - port: "http-mubpodport"
+      path: "/metrics"
