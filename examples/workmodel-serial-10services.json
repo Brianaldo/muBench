@@ -3,18 +3,14 @@
     "external_services": [
       {
         "seq_len": 100,
-        "services": ["s1","s2","s3","s4","s5","s6","s7","s8","s9"
-        ]
+        "services": ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9"]
       }
     ],
     "internal_service": {
       "loader": {
         "cpu_stress": {
           "run": true,
-          "range_complexity": [
-            100,
-            100
-          ],
+          "range_complexity": [100, 100],
           "thread_pool_size": 1,
           "trials": 10
         },
@@ -42,25 +38,21 @@
     "threads": 16,
     "url": "s0.default.svc.cluster.local",
     "path": "/api/v1",
-    "image": "msvcbench/microservice_v3-screen:1.0",
+    "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default"
   },
   "s1": {
     "external_services": [
       {
         "seq_len": 1,
-        "services": [
-        ]
+        "services": []
       }
     ],
     "internal_service": {
       "loader": {
         "cpu_stress": {
           "run": true,
-          "range_complexity": [
-            100,
-            100
-          ],
+          "range_complexity": [100, 100],
           "thread_pool_size": 1,
           "trials": 10
         },
@@ -88,25 +80,21 @@
     "threads": 16,
     "url": "s1.default.svc.cluster.local",
     "path": "/api/v1",
-    "image": "msvcbench/microservice_v3-screen:1.0",
+    "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default"
   },
   "s2": {
     "external_services": [
       {
         "seq_len": 1,
-        "services": [
-        ]
+        "services": []
       }
     ],
     "internal_service": {
       "loader": {
         "cpu_stress": {
           "run": true,
-          "range_complexity": [
-            100,
-            100
-          ],
+          "range_complexity": [100, 100],
           "thread_pool_size": 1,
           "trials": 10
         },
@@ -134,25 +122,21 @@
     "threads": 16,
     "url": "s2.default.svc.cluster.local",
     "path": "/api/v1",
-    "image": "msvcbench/microservice_v3-screen:1.0",
+    "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default"
   },
   "s3": {
     "external_services": [
       {
         "seq_len": 1,
-        "services": [
-        ]
+        "services": []
       }
     ],
     "internal_service": {
       "loader": {
         "cpu_stress": {
           "run": true,
-          "range_complexity": [
-            100,
-            100
-          ],
+          "range_complexity": [100, 100],
           "thread_pool_size": 1,
           "trials": 10
         },
@@ -180,25 +164,21 @@
     "threads": 16,
     "url": "s3.default.svc.cluster.local",
     "path": "/api/v1",
-    "image": "msvcbench/microservice_v3-screen:1.0",
+    "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default"
   },
   "s4": {
     "external_services": [
       {
         "seq_len": 1,
-        "services": [
-        ]
+        "services": []
       }
     ],
     "internal_service": {
       "loader": {
         "cpu_stress": {
           "run": true,
-          "range_complexity": [
-            100,
-            100
-          ],
+          "range_complexity": [100, 100],
           "thread_pool_size": 1,
           "trials": 10
         },
@@ -226,25 +206,21 @@
     "threads": 16,
     "url": "s4.default.svc.cluster.local",
     "path": "/api/v1",
-    "image": "msvcbench/microservice_v3-screen:1.0",
+    "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default"
   },
   "s5": {
     "external_services": [
       {
         "seq_len": 1,
-        "services": [
-        ]
+        "services": []
       }
     ],
     "internal_service": {
       "loader": {
         "cpu_stress": {
           "run": true,
-          "range_complexity": [
-            100,
-            100
-          ],
+          "range_complexity": [100, 100],
           "thread_pool_size": 1,
           "trials": 10
         },
@@ -272,25 +248,21 @@
     "threads": 16,
     "url": "s1.default.svc.cluster.local",
     "path": "/api/v1",
-    "image": "msvcbench/microservice_v3-screen:1.0",
+    "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default"
   },
   "s6": {
     "external_services": [
       {
         "seq_len": 1,
-        "services": [
-        ]
+        "services": []
       }
     ],
     "internal_service": {
       "loader": {
         "cpu_stress": {
           "run": true,
-          "range_complexity": [
-            100,
-            100
-          ],
+          "range_complexity": [100, 100],
           "thread_pool_size": 1,
           "trials": 10
         },
@@ -318,25 +290,21 @@
     "threads": 16,
     "url": "s1.default.svc.cluster.local",
     "path": "/api/v1",
-    "image": "msvcbench/microservice_v3-screen:1.0",
+    "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default"
   },
   "s7": {
     "external_services": [
       {
         "seq_len": 1,
-        "services": [
-        ]
+        "services": []
       }
     ],
     "internal_service": {
       "loader": {
         "cpu_stress": {
           "run": true,
-          "range_complexity": [
-            100,
-            100
-          ],
+          "range_complexity": [100, 100],
           "thread_pool_size": 1,
           "trials": 10
         },
@@ -364,25 +332,21 @@
     "threads": 16,
     "url": "s2.default.svc.cluster.local",
     "path": "/api/v1",
-    "image": "msvcbench/microservice_v3-screen:1.0",
+    "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default"
   },
   "s8": {
     "external_services": [
       {
         "seq_len": 1,
-        "services": [
-        ]
+        "services": []
       }
     ],
     "internal_service": {
       "loader": {
         "cpu_stress": {
           "run": true,
-          "range_complexity": [
-            100,
-            100
-          ],
+          "range_complexity": [100, 100],
           "thread_pool_size": 1,
           "trials": 10
         },
@@ -410,25 +374,21 @@
     "threads": 16,
     "url": "s3.default.svc.cluster.local",
     "path": "/api/v1",
-    "image": "msvcbench/microservice_v3-screen:1.0",
+    "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default"
   },
   "s9": {
     "external_services": [
       {
         "seq_len": 1,
-        "services": [
-        ]
+        "services": []
       }
     ],
     "internal_service": {
       "loader": {
         "cpu_stress": {
           "run": true,
-          "range_complexity": [
-            100,
-            100
-          ],
+          "range_complexity": [100, 100],
           "thread_pool_size": 1,
           "trials": 10
         },
@@ -456,7 +416,7 @@
     "threads": 16,
     "url": "s4.default.svc.cluster.local",
     "path": "/api/v1",
-    "image": "msvcbench/microservice_v3-screen:1.0",
+    "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default"
   }
 }
