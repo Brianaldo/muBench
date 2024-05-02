@@ -23,7 +23,6 @@ import mub_pb2 as pb2
 import grpc
 
 import logging
-from logging.handlers import RotatingFileHandler
 
 # Configuration of global variables
 
@@ -53,10 +52,8 @@ TN = os.environ["TN"] # Number of thread per process
 traceEscapeString = "__"
 
 # Configure logging
-handler = RotatingFileHandler('app.log', maxBytes=10000, backupCount=3)
-handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-handler.setFormatter(formatter)
+app.logger.setLevel(logging.CRITICAL)
+handler = logging.FileHandler('app.log')
 app.logger.addHandler(handler)
 
 #globalDict=Manager().dict()
@@ -205,7 +202,7 @@ def start_worker():
 
         # Add trace context propagation headers to the response
         response.headers.update(jaeger_headers)
-        app.logger.debug(f'{local_processing_latency} {external_processing_latency} {request_processing_latency}')
+        app.logger.critical(f'{local_processing_latency} {external_processing_latency} {request_processing_latency}')
 
         return response
     except Exception as err:
