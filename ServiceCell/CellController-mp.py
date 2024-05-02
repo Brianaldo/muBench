@@ -202,7 +202,7 @@ def start_worker():
 
         # Add trace context propagation headers to the response
         response.headers.update(jaeger_headers)
-        app.logger.critical(f'{local_processing_latency} {external_processing_latency} {request_processing_latency}')
+        app.logger.critical(f'{time.strftime('[%d-%m-%Y %H:%M:%S %z]')} {start_request_processing}  {local_processing_latency} {external_processing_latency} {request_processing_latency}')
 
         return response
     except Exception as err:
