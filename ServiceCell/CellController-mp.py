@@ -22,6 +22,8 @@ import mub_pb2_grpc as pb2_grpc
 import mub_pb2 as pb2
 import grpc
 
+import logging
+from logging.handlers import RotatingFileHandler
 
 # Configuration of global variables
 
@@ -53,6 +55,14 @@ traceEscapeString = "__"
 # globalDict=Manager().dict()
 globalDict = dict()
 
+# logger
+handler = RotatingFileHandler('app.log', maxBytes=10000, backupCount=3)
+handler.setLevel(logging.DEBUG)
+formatter = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+handler.setFormatter(formatter)
+app.logger.addHandler(handler)
+
 
 def read_config_files():
     res = dict()
@@ -81,28 +91,19 @@ else:
 registry = CollectorRegistry()
 multiprocess.MultiProcessCollector(registry)
 
-quantiles = {
-    0.50: 0.05,  # 50th percentile with 5% error
-    0.70: 0.05,  # 70th percentile with 5% error
-    0.90: 0.01,  # 90th percentile with 1% error
-    0.95: 0.005,  # 95th percentile with 0.5% error
-    0.97: 0.005,  # 95th percentile with 0.5% error
-    0.99: 0.001,  # 95th percentile with 0.1% error
-}
-
 CONTENT_TYPE_LATEST = str('text/plain; version=0.0.4; charset=utf-8')
 RESPONSE_SIZE = Summary('mub_response_size', 'Response size',
                         ['zone', 'app_name', 'method', 'endpoint', 'from', 'kubernetes_service'], registry=registry
                         )
 
 INTERNAL_PROCESSING = Summary('mub_internal_processing_latency_milliseconds', 'Latency of internal service',
-                              ['zone', 'app_name', 'method', 'endpoint'], registry=registry, objectives=quantiles
+                              ['zone', 'app_name', 'method', 'endpoint'], registry=registry
                               )
 EXTERNAL_PROCESSING = Summary('mub_external_processing_latency_milliseconds', 'Latency of external services',
-                              ['zone', 'app_name', 'method', 'endpoint'], registry=registry, objectives=quantiles
+                              ['zone', 'app_name', 'method', 'endpoint'], registry=registry
                               )
 REQUEST_PROCESSING = Summary('mub_request_processing_latency_milliseconds', 'Request latency including external and internal service',
-                             ['zone', 'app_name', 'method', 'endpoint', 'from', 'kubernetes_service'], registry=registry, objectives=quantiles
+                             ['zone', 'app_name', 'method', 'endpoint', 'from', 'kubernetes_service'], registry=registry
                              )
 
 buckets = [0.5, 1, 10, 100, 1000, 10000, float("inf")]
@@ -179,11 +180,11 @@ def start_worker():
             "*************** INTERNAL SERVICE STARTED ***************")
         start_local_processing = time.time()
         body = run_internal_service(my_internal_service)
-        local_processing_latency = time.time() - start_local_processing
+        local_processing_latency = (time.time() - start_local_processing)*1000
         INTERNAL_PROCESSING.labels(ZONE, K8S_APP, request.method, request.path).observe(
-            local_processing_latency*1000)
+            local_processing_latency)
         INTERNAL_PROCESSING_BUCKET.labels(
-            ZONE, K8S_APP, request.method, request.path).observe(local_processing_latency*1000)
+            ZONE, K8S_APP, request.method, request.path).observe(local_processing_latency)
         RESPONSE_SIZE.labels(ZONE, K8S_APP, request.method,
                              request.path, request.remote_addr, ID).observe(len(body))
         app.logger.info("len(body): %d" % len(body))
@@ -212,18 +213,27 @@ def start_worker():
 
         response = make_response(body)
         response.mimetype = "text/plain"
+        external_processing_latency = (
+            time.time() - start_external_request_processing) * 1000
         EXTERNAL_PROCESSING.labels(ZONE, K8S_APP, request.method, request.path).observe(
-            (time.time() - start_external_request_processing)*1000)
+            external_processing_latency)
         EXTERNAL_PROCESSING_BUCKET.labels(ZONE, K8S_APP, request.method, request.path).observe(
-            (time.time() - start_external_request_processing)*1000)
+            external_processing_latency)
 
+        total_processing_latency = (
+            time.time() - start_request_processing)*1000
         REQUEST_PROCESSING.labels(ZONE, K8S_APP, request.method, request.path, request.remote_addr, ID).observe(
-            (time.time() - start_request_processing)*1000)
+            total_processing_latency)
         REQUEST_PROCESSING_BUCKET.labels(ZONE, K8S_APP, request.method, request.path, request.remote_addr, ID).observe(
-            (time.time() - start_request_processing)*1000)
+            total_processing_latency)
 
         # Add trace context propagation headers to the response
         response.headers.update(jaeger_headers)
+
+        # Log
+        app.logger.debug(
+            f"{local_processing_latency} - {external_processing_latency} - {total_processing_latency}"
+        )
 
         return response
     except Exception as err:
@@ -234,7 +244,7 @@ def start_worker():
 # Prometheus
 
 
-@app.route('/metrics')
+@ app.route('/metrics')
 def metrics():
     return Response(prometheus_client.generate_latest(registry), mimetype=CONTENT_TYPE_LATEST)
 
