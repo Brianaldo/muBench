@@ -6,8 +6,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "2500m",
-    "cpu-limits": "2500m",
+    "cpu-requests": "100m",
+    "cpu-limits": "100m",
     "external_services": [
       {
         "seq_len": 100,
@@ -59,8 +59,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "1500m",
-    "cpu-limits": "1500m",
+    "cpu-requests": "100m",
+    "cpu-limits": "100m",
     "external_services": [
       {
         "seq_len": 100,
@@ -85,8 +85,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "500m",
-    "cpu-limits": "500m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "external_services": [],
     "internal_service": {
       "compute_pi": {
@@ -102,8 +102,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "1500m",
-    "cpu-limits": "1500m",
+    "cpu-requests": "100m",
+    "cpu-limits": "100m",
     "external_services": [],
     "internal_service": {
       "compute_pi": {
@@ -119,8 +119,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "1500m",
-    "cpu-limits": "1500m",
+    "cpu-requests": "100m",
+    "cpu-limits": "100m",
     "external_services": [
       {
         "seq_len": 100,
@@ -144,8 +144,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "500m",
-    "cpu-limits": "500m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "external_services": [],
     "internal_service": {
       "compute_pi": {
@@ -161,8 +161,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "1500m",
-    "cpu-limits": "1500m",
+    "cpu-requests": "100m",
+    "cpu-limits": "100m",
     "external_services": [
       {
         "seq_len": 100,
@@ -186,8 +186,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "500m",
-    "cpu-limits": "500m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "external_services": [],
     "internal_service": {
       "compute_pi": {
@@ -203,8 +203,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "1500m",
-    "cpu-limits": "1500m",
+    "cpu-requests": "100m",
+    "cpu-limits": "100m",
     "external_services": [
       {
         "seq_len": 100,
@@ -229,8 +229,8 @@
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
     "external_services": [],
-    "cpu-requests": "500m",
-    "cpu-limits": "500m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "internal_service": {
       "compute_pi": {
         "mean_bandwidth": 15,
@@ -245,8 +245,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "1000m",
-    "cpu-limits": "1000m",
+    "cpu-requests": "100m",
+    "cpu-limits": "100m",
     "external_services": [],
     "internal_service": {
       "compute_pi": {
