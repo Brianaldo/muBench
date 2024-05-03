@@ -100,7 +100,7 @@ spec:
   selector:
     app: {{SERVICE_NAME}}
 ---
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: {{SERVICE_NAME}}
@@ -112,6 +112,12 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: {{SERVICE_NAME}}
-minReplicas: 1
-maxReplicas: 50
-targetCPUUtilizationPercentage: 80
+  minReplicas: 1
+  maxReplicas: 50
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80
