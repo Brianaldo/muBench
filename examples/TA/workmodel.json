@@ -13,35 +13,35 @@
         "seq_len": 100,
         "services": ["s1"],
         "probabilities": {
-          "s1": 0.15
+          "s1": 1
         }
       },
       {
         "seq_len": 100,
         "services": ["s2"],
         "probabilities": {
-          "s2": 0.1
+          "s2": 1
         }
       },
       {
         "seq_len": 100,
         "services": ["s3"],
         "probabilities": {
-          "s3": 0.15
+          "s3": 1
         }
       },
       {
         "seq_len": 100,
         "services": ["s4"],
         "probabilities": {
-          "s4": 0.4
+          "s4": 1
         }
       },
       {
         "seq_len": 100,
         "services": ["s5"],
         "probabilities": {
-          "s5": 0.3
+          "s5": 1
         }
       }
     ],
@@ -67,7 +67,7 @@
         "services": ["sdb1", "s6"],
         "probabilities": {
           "sdb1": 0.95,
-          "s6": 0.95
+          "s6": 1
         }
       }
     ],
