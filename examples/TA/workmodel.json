@@ -6,8 +6,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "100m",
-    "cpu-limits": "100m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "external_services": [
       {
         "seq_len": 100,
@@ -59,8 +59,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "100m",
-    "cpu-limits": "100m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "external_services": [
       {
         "seq_len": 100,
@@ -102,8 +102,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "100m",
-    "cpu-limits": "100m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "external_services": [],
     "internal_service": {
       "compute_pi": {
@@ -119,8 +119,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "100m",
-    "cpu-limits": "100m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "external_services": [
       {
         "seq_len": 100,
@@ -161,8 +161,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "100m",
-    "cpu-limits": "100m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "external_services": [
       {
         "seq_len": 100,
@@ -203,8 +203,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "100m",
-    "cpu-limits": "100m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "external_services": [
       {
         "seq_len": 100,
@@ -245,8 +245,8 @@
     "path": "/api/v1",
     "image": "msvcbench/microservice_modified-screen:latest",
     "namespace": "default",
-    "cpu-requests": "100m",
-    "cpu-limits": "100m",
+    "cpu-requests": "200m",
+    "cpu-limits": "200m",
     "external_services": [],
     "internal_service": {
       "compute_pi": {
