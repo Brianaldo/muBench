@@ -97,7 +97,7 @@ REQUEST_PROCESSING = Summary('mub_request_processing_latency_milliseconds', 'Req
                            )
 
 # buckets=[0.5, 1, 10, 100 ,1000, 10000, float("inf")] 
-buckets=[0.1, 1, 10, 50, 100, 200, 300, 500, 1000, 5000, 10000, float("inf")] 
+buckets=[0.1, 1, 10, 50, 100, 200, 300, 500, 500, 600, 700, 800, 900, 1000, 2000, 3000, 4000, 5000, 10000, float("inf")] 
 INTERNAL_PROCESSING_BUCKET = Histogram('mub_internal_processing_latency_milliseconds_bucket', 'Latency of internal service',
                            ['zone', 'app_name', 'method', 'endpoint'],registry=registry,buckets=buckets
                            )
